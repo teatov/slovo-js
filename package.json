@@ -6,9 +6,18 @@
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    }
+  },
   "scripts": {
-    "build": "tsc",
-    "test": "a"
+    "build": "tsup",
+    "test": "a",
+    "lint": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,6 +36,7 @@
   },
   "homepage": "https://github.com/teatov/slovo-js#readme",
   "devDependencies": {
+    "tsup": "^8.4.0",
     "typescript": "^5.8.2"
   }
 }
