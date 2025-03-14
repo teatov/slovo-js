@@ -1,8 +1,8 @@
 import type { Split } from './utils';
 
-const letters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя' as const;
+const LETTERS = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя' as const;
 
-export type Letter = Split<typeof letters>[number];
+export type Letter = Split<typeof LETTERS>[number];
 
-export const vowels = 'аеёиоуыэеёюя'.split('') as Letter[];
-export const consonants = vowels.filter((letter) => !vowels.includes(letter));
+export const VOWELS = 'аеёиоуыэеёюя'.split('') as Letter[];
+export const CONSONANTS = VOWELS.filter((letter) => !VOWELS.includes(letter));
