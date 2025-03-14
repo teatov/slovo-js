@@ -1,4 +1,4 @@
-import { vowels, type Letter } from './letters';
+import { VOWELS, type Letter } from './letters';
 import { ZaliznyakIndex } from './zaliznyak';
 
 /**
@@ -22,7 +22,7 @@ export class Slovo {
 
   /**
    * Основной класс для работы со словами
-   * 
+   *
    * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
    * @param index Индекс Зализняка данного слова
    */
@@ -36,17 +36,18 @@ export class Slovo {
    * Извлечение графической основы слова из его словарной формы
    */
   static stem(lemma: string): string {
-    const lastLetter = lemma.slice(-1) as Letter;
+    const lemmaLower = lemma.toLowerCase();
+    const lastLetter = lemmaLower.slice(-1) as Letter;
 
     if (
-      vowels.includes(lastLetter) ||
+      VOWELS.includes(lastLetter) ||
       lastLetter === 'й' ||
       lastLetter === 'ь'
     ) {
-      return lemma.slice(0, -1);
+      return lemmaLower.slice(0, -1);
     }
 
-    return lemma;
+    return lemmaLower;
   }
 }
 

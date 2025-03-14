@@ -10,6 +10,8 @@ test.each([
   ['тополь', 'топол'],
   ['поезд', 'поезд'],
   ['стол', 'стол'],
+  ['СТОЛ', 'стол'],
+  ['Стол', 'стол'],
 ])('Slovo.stem(%s) -> %s', (lemma, expected) => {
   expect(Slovo.stem(lemma)).toBe(expected);
 });
