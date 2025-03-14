@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "test": "a",
+    "test": "vitest run",
     "lint": "tsc"
   },
   "repository": {
@@ -37,6 +37,7 @@
   "homepage": "https://github.com/teatov/slovo-js#readme",
   "devDependencies": {
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
   }
 }
