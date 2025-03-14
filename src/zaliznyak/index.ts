@@ -40,7 +40,7 @@ export interface SubstantiveDeclension {
  */
 export class ZaliznyakIndex {
   /**
-   * Характеристика склонения слова
+   * Основная характеристика склонения слова
    */
   declension: SubstantiveDeclension;
 
