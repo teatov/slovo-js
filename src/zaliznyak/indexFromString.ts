@@ -1,4 +1,8 @@
-import { STRESS_VALUES, type ZaliznyakIndex } from '.';
+import {
+  STRESS_VALUES,
+  type SubstantiveDeclension,
+  type ZaliznyakIndex,
+} from '.';
 
 const SEP = /[\s,]*/.source;
 const GENDER = /(м|ж|с)/.source;
@@ -48,7 +52,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
     return null;
   }
 
-  let gender: ZaliznyakIndex['gender'];
+  let gender: SubstantiveDeclension['gender'];
 
   switch (_gender) {
     case 'м':
@@ -64,7 +68,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
       return null;
   }
 
-  let animacy: ZaliznyakIndex['animacy'];
+  let animacy: SubstantiveDeclension['animacy'];
 
   if (_animacy) {
     animacy = 'a';
@@ -89,7 +93,11 @@ export default function (indexString: string): ZaliznyakIndex | null {
     return null;
   }
 
-  const index: ZaliznyakIndex = { gender, animacy, type, stress };
+  const index: ZaliznyakIndex = {
+    declension: { gender, animacy },
+    type,
+    stress,
+  };
 
   if (mobileVowel) {
     index.mobileVowel = true;

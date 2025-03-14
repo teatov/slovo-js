@@ -14,9 +14,9 @@ export const STRESS_VALUES = [
 ] as const;
 
 /**
- * Объектная репрезентация индекса Зализняка для существительных
+ * Репрезентация субстантивного склонения
  */
-export class ZaliznyakIndex {
+export interface SubstantiveDeclension {
   /**
    * Род
    *
@@ -33,6 +33,16 @@ export class ZaliznyakIndex {
    * - `'ina'` - неодушевлённое
    */
   animacy: 'a' | 'ina';
+}
+
+/**
+ * Репрезентация индекса Зализняка для имён существительных
+ */
+export class ZaliznyakIndex {
+  /**
+   * Характеристика склонения слова
+   */
+  declension: SubstantiveDeclension;
 
   /**
    * Цифра индекса - тип склонения
@@ -102,16 +112,14 @@ export class ZaliznyakIndex {
   ioAlternation?: boolean;
 
   constructor({
-    gender,
-    animacy,
+    declension,
     type,
     mobileVowel,
     alternations,
     stress,
     deviation,
   }: ZaliznyakIndex) {
-    this.gender = gender;
-    this.animacy = animacy;
+    this.declension = declension;
     this.type = type;
     this.mobileVowel = mobileVowel;
     this.alternations = alternations;

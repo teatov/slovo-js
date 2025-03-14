@@ -3,21 +3,36 @@ import indexFromString from '../src/zaliznyak/indexFromString';
 import type { ZaliznyakIndex } from '../src/zaliznyak';
 
 test.each([
-  ['м 1a', { gender: 'm', animacy: 'ina', type: 1, stress: 'a' }],
-  ['мо 2b', { gender: 'm', animacy: 'a', type: 2, stress: 'b' }],
+  [
+    'м 1a',
+    { declension: { gender: 'm', animacy: 'ina' }, type: 1, stress: 'a' },
+  ],
+  [
+    'мо 2b',
+    { declension: { gender: 'm', animacy: 'a' }, type: 2, stress: 'b' },
+  ],
   [
     'жо   3*a',
-    { gender: 'f', animacy: 'a', type: 3, stress: 'a', mobileVowel: true },
+    {
+      declension: { gender: 'f', animacy: 'a' },
+      type: 3,
+      stress: 'a',
+      mobileVowel: true,
+    },
   ],
   [
     'с, 7°c',
-    { gender: 'n', animacy: 'ina', type: 7, stress: 'c', alternations: true },
+    {
+      declension: { gender: 'n', animacy: 'ina' },
+      type: 7,
+      stress: 'c',
+      alternations: true,
+    },
   ],
   [
     'ж 5*°f',
     {
-      gender: 'f',
-      animacy: 'ina',
+      declension: { gender: 'f', animacy: 'ina' },
       type: 5,
       stress: 'f',
       mobileVowel: true,
@@ -26,13 +41,17 @@ test.each([
   ],
   [
     'жо, 4e①',
-    { gender: 'f', animacy: 'a', type: 4, stress: 'e', deviation: '1' },
+    {
+      declension: { gender: 'f', animacy: 'a' },
+      type: 4,
+      stress: 'e',
+      deviation: '1',
+    },
   ],
   [
     'со  , 6*d②',
     {
-      gender: 'n',
-      animacy: 'a',
+      declension: { gender: 'n', animacy: 'a' },
       type: 6,
       stress: 'd',
       mobileVowel: true,
@@ -42,8 +61,7 @@ test.each([
   [
     'м 7°b①②',
     {
-      gender: 'm',
-      animacy: 'ina',
+      declension: { gender: 'm', animacy: 'ina' },
       type: 7,
       stress: 'b',
       alternations: true,
@@ -53,8 +71,7 @@ test.each([
   [
     'ж  ,,, \t  , \n  ,   1c③',
     {
-      gender: 'f',
-      animacy: 'ina',
+      declension: { gender: 'f', animacy: 'ina' },
       type: 1,
       stress: 'c',
       deviation: '3',
@@ -63,8 +80,7 @@ test.each([
   [
     'м 1a ё',
     {
-      gender: 'm',
-      animacy: 'ina',
+      declension: { gender: 'm', animacy: 'ina' },
       type: 1,
       stress: 'a',
       ioAlternation: true,
@@ -73,8 +89,7 @@ test.each([
   [
     'м1aё',
     {
-      gender: 'm',
-      animacy: 'ina',
+      declension: { gender: 'm', animacy: 'ina' },
       type: 1,
       stress: 'a',
       ioAlternation: true,
