@@ -1,0 +1,25 @@
+{
+  "name": "slovo-js",
+  "version": "0.0.1",
+  "description": "A library for inflecting Russian words",
+  "main": "dist",
+  "scripts": {
+    "test": "a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teatov/slovo-js.git"
+  },
+  "keywords": [
+    "inflection",
+    "inflect",
+    "russian",
+    "language"
+  ],
+  "author": "teatov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teatov/slovo-js/issues"
+  },
+  "homepage": "https://github.com/teatov/slovo-js#readme"
+}
