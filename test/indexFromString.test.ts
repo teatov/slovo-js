@@ -82,8 +82,8 @@ test.each([
   ],
 ] as [string, ZaliznyakIndex][])(
   'indexFromString(%s) -> %s',
-  (actual, expected) => {
-    expect(indexFromString(actual)).toStrictEqual(expected);
+  (index, expected) => {
+    expect(indexFromString(index)).toStrictEqual(expected);
   },
 );
 
@@ -107,6 +107,6 @@ test.each([
   'м 1*°a_①',
   'м 1*°a①_',
   'м 1a_ё',
-] as string[])('indexFromString(%s) -> null', (actual) => {
-  expect(indexFromString(actual)).toBeNull();
+] as string[])('indexFromString(%s) -> null', (index) => {
+  expect(indexFromString(index)).toBeNull();
 });

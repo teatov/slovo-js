@@ -10,6 +10,6 @@ test.each([
   ['тополь', 'топол'],
   ['поезд', 'поезд'],
   ['стол', 'стол'],
-])('Slovo.stem(%s) -> %s', (actual, expected) => {
-  expect(Slovo.stem(actual)).toBe(expected);
+])('Slovo.stem(%s) -> %s', (lemma, expected) => {
+  expect(Slovo.stem(lemma)).toBe(expected);
 });
