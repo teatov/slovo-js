@@ -1,1 +1,5 @@
-export { add } from './utils';
+const slovo = {};
+
+export default slovo;
+
+export {};
