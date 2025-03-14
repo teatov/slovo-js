@@ -23,8 +23,8 @@ export class Slovo {
   /**
    * Основной класс для работы со словами
    *
-   * @param lemma - Словарная форма слова - И. п. ед. ч. для существительных
-   * @param index - Индекс Зализняка данного слова
+   * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
+   * @param index Индекс Зализняка данного слова
    */
   constructor(lemma: string, index: ZaliznyakIndex) {
     this.lemma = lemma;
@@ -52,8 +52,8 @@ export class Slovo {
 }
 
 /**
- * @param - lemma Словарная форма слова - И. п. ед. ч. для существительных
- * @param - index Индекс Зализняка данного слова
+ * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
+ * @param index Индекс Зализняка данного слова
  */
 export function slovo(
   lemma: string,
