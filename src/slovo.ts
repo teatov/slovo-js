@@ -21,6 +21,8 @@ export class Slovo {
   stem: string;
 
   /**
+   * Основной класс для работы со словами
+   * 
    * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
    * @param index Индекс Зализняка данного слова
    */
@@ -31,7 +33,7 @@ export class Slovo {
   }
 
   /**
-   * Извлечение основы слова из его словарной формы
+   * Извлечение графической основы слова из его словарной формы
    */
   static stem(lemma: string): string {
     const lastLetter = lemma.slice(-1) as Letter;
