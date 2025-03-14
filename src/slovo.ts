@@ -1,5 +1,5 @@
 import { vowels, type Letter } from './letters';
-import type { ZaliznyakIndex } from './zaliznyak';
+import { ZaliznyakIndex } from './zaliznyak';
 
 /**
  * Основной класс для работы со словами
@@ -9,10 +9,12 @@ export class Slovo {
    * Словарная форма слова - И. п. ед. ч. для существительных
    */
   lemma: string;
+
   /**
    * Индекс Зализняка данного слова
    */
   index: ZaliznyakIndex;
+
   /**
    * Графическая основа слова
    */
@@ -50,6 +52,17 @@ export class Slovo {
  * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
  * @param index Индекс Зализняка данного слова
  */
-export function slovo(lemma: string, index: ZaliznyakIndex) {
+export function slovo(
+  lemma: string,
+  index: ZaliznyakIndex | string,
+): Slovo | null {
+  if (typeof index === 'string') {
+    const indexObject = ZaliznyakIndex.fromString(index);
+    if (!indexObject) {
+      return null;
+    }
+    return new Slovo(lemma, indexObject);
+  }
+
   return new Slovo(lemma, index);
 }

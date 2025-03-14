@@ -1,3 +1,18 @@
+import indexFromString from './indexFromString';
+
+export const STRESS_VALUES = [
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+  "b'",
+  "d'",
+  "f'",
+  'f"',
+] as const;
+
 /**
  * Объектная репрезентация индекса Зализняка для существительных
  */
@@ -63,7 +78,7 @@ export class ZaliznyakIndex {
    * - `f'` - от­ли­ча­е­т­ся от `f` то­ль­ко тем, что в В. п. ед. ч. уда­ре­ние на ос­но­ве (ед. ч. ру­ка́, ру­ки́, ру­ке́, ру­́­ку, ру­ко́й, о ру­ке́; мн. ч. ру­́­ки, рук, ру­ка́м, ру­ка­́­ми, о ру­ка́х)
    * - `f"` - от­ли­ча­е­т­ся от `f` то­ль­ко тем, что в Т. п. ед. ч. уда­ре­ние на ос­но­ве (ед. ч. грудь, гру­ди́, гру­́­дью; мн. ч. гру­́­ди, гру­де́й, гру­дя́м, гру­дя­́­ми, о гру­дя́х)
    */
-  stress: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | "b'" | "d'" | "f'" | 'f"';
+  stress: (typeof STRESS_VALUES)[number];
 
   /**
    * Ци­ф­ра в кру­ж­ке (①, ② или ③) - ча­с­то встре­ча­ю­ще­е­ся от­к­ло­не­ние от ста­н­да­р­т­но­го скло­не­ния
@@ -102,5 +117,9 @@ export class ZaliznyakIndex {
     this.alternations = alternations;
     this.stress = stress;
     this.deviation = deviation;
+  }
+
+  static fromString(indexString: string) {
+    return indexFromString(indexString);
   }
 }
