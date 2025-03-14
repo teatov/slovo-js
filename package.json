@@ -17,7 +17,8 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "lint": "tsc"
+    "lint": "tsc",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
   },
   "homepage": "https://github.com/teatov/slovo-js#readme",
   "devDependencies": {
+    "prettier": "^3.5.3",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
     "vitest": "^3.0.8"
