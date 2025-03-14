@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { Slovo } from '../src';
+import slovo, { Slovo, ZaliznyakIndex } from '../src';
 
 test.each([
   ['акула', 'акул'],
@@ -13,3 +13,102 @@ test.each([
 ])('Slovo.stem(%s) -> %s', (lemma, expected) => {
   expect(Slovo.stem(lemma)).toBe(expected);
 });
+
+test.each([
+  [
+    'кошка',
+    'жо 3*a',
+    {
+      lemma: 'кошка',
+      stem: 'кошк',
+      index: {
+        gender: 'f',
+        animacy: 'a',
+        type: 3,
+        stress: 'a',
+        mobileVowel: true,
+      },
+    },
+  ],
+  [
+    'ведро',
+    'с 1*d, ё',
+    {
+      lemma: 'ведро',
+      stem: 'ведр',
+      index: {
+        gender: 'n',
+        animacy: 'ina',
+        type: 1,
+        stress: 'd',
+        mobileVowel: true,
+        ioAlternation: true,
+      },
+    },
+  ],
+] as [string, string, Slovo][])(
+  'slovo(%s, %s) -> %s',
+  (lemma, index, expected) => {
+    const word = slovo(lemma, index);
+    expect(word).toBeInstanceOf(Slovo);
+    expect(word?.lemma).toBe(expected.lemma);
+    expect(word?.stem).toBe(expected.stem);
+    expect(word?.index).toStrictEqual(expected.index);
+  },
+);
+
+test.each([
+  [
+    'кошка',
+    {
+      gender: 'f',
+      animacy: 'a',
+      type: 3,
+      stress: 'a',
+      mobileVowel: true,
+    },
+    {
+      lemma: 'кошка',
+      stem: 'кошк',
+      index: {
+        gender: 'f',
+        animacy: 'a',
+        type: 3,
+        stress: 'a',
+        mobileVowel: true,
+      },
+    },
+  ],
+  [
+    'ведро',
+    {
+      gender: 'n',
+      animacy: 'ina',
+      type: 1,
+      stress: 'd',
+      mobileVowel: true,
+      ioAlternation: true,
+    },
+    {
+      lemma: 'ведро',
+      stem: 'ведр',
+      index: {
+        gender: 'n',
+        animacy: 'ina',
+        type: 1,
+        stress: 'd',
+        mobileVowel: true,
+        ioAlternation: true,
+      },
+    },
+  ],
+] as [string, ZaliznyakIndex, Slovo][])(
+  'new Slovo(%s, %s) -> %s',
+  (lemma, index, expected) => {
+    const word = new Slovo(lemma, index);
+    expect(word).toBeInstanceOf(Slovo);
+    expect(word?.lemma).toBe(expected.lemma);
+    expect(word?.stem).toBe(expected.stem);
+    expect(word?.index).toStrictEqual(expected.index);
+  },
+);
