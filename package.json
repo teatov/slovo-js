@@ -15,11 +15,13 @@
     }
   },
   "scripts": {
+    "release": "changeset version && changeset publish",
     "ci": "npm run build && npm run lint && npm run test",
     "build": "tsup",
     "test": "vitest run",
     "lint": "tsc",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepublishOnly": "npm run ci"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,7 @@
   },
   "homepage": "https://github.com/teatov/slovo-js#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "prettier": "^3.5.3",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
