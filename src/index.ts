@@ -1,5 +1,5 @@
-const slovo = {};
+import { slovo, Slovo } from './slovo';
 
 export default slovo;
 
-export {};
+export { Slovo };
