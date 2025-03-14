@@ -9,7 +9,7 @@ export class ZaliznyakIndex {
    * - `'f'` - женский ро­д
    * - `'n'` - средний ро­д
    */
-  gender: 'm' | 'f' | 'n';
+  gender?: 'm' | 'f' | 'n';
 
   /**
    * Одушевлённость
@@ -17,7 +17,7 @@ export class ZaliznyakIndex {
    * - `'a'` - одушевлённое
    * - `'ina'` - неодушевлённое
    */
-  animacy: 'a' | 'ina';
+  animacy?: 'a' | 'ina';
 
   /**
    * Цифра индекса - тип склонения
