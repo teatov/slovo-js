@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/teatov/slovo-js/issues"
   },
-  "homepage": "https://github.com/teatov/slovo-js#readme"
+  "homepage": "https://github.com/teatov/slovo-js#readme",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
 }
