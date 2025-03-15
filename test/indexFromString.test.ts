@@ -53,12 +53,12 @@ test.each([
     },
   ],
   [
-    'жо, 4e①',
+    'жо, 4d\'①',
     {
       features: { gender: 'f', animacy: 'a' },
       declension: 'sub',
       type: 4,
-      stress: 'e',
+      stress: 'd\'',
       deviation: '1',
     },
   ],
@@ -114,6 +114,36 @@ test.each([
       ioAlternation: true,
     },
   ],
+  [
+    "м 1f'",
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 1,
+      stress: "f'",
+    },
+  ],
+  [
+    'м 1f"',
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 1,
+      stress: 'f"',
+    },
+  ],
+  [
+    "м 1*f'①ё",
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 1,
+      stress: "f'",
+      mobileVowel: true,
+      deviation: '1',
+      ioAlternation: true,
+    },
+  ],
 ] as [string, ZaliznyakIndex][])(
   'indexFromString(%s) -> %s',
   (index, expected) => {
@@ -147,3 +177,59 @@ test.each([
   expect(indexFromString(index)).toBeNull();
 });
 
+test.each([
+  [
+    'm a 1a',
+    {
+      features: { gender: 'm', animacy: 'a' },
+      declension: 'sub',
+      type: 1,
+      stress: 'a',
+    },
+  ],
+  [
+    'f ina 7a',
+    {
+      features: { gender: 'f', animacy: 'ina' },
+      declension: 'sub',
+      type: 7,
+      stress: 'a',
+    },
+  ],
+  [
+    'n a 4f\'',
+    {
+      features: { gender: 'n', animacy: 'a' },
+      declension: 'sub',
+      type: 4,
+      stress: 'f\'',
+    },
+  ],
+  [
+    'm ina 3c(3)',
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 3,
+      stress: 'c',
+      deviation: '3',
+    },
+  ],
+  [
+    'm ina 3c(1)(2)',
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 3,
+      stress: 'c',
+      deviation: '12',
+    },
+  ],
+] as [string, ZaliznyakIndex][])(
+  'indexFromString(%s) -> %s',
+  (index, expected) => {
+    expect(JSON.parse(JSON.stringify(indexFromString(index)))).toStrictEqual(
+      expected,
+    );
+  },
+);
