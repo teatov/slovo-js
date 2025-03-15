@@ -12,7 +12,8 @@ function input() {
     const [lemma, ...index] = answer.split(' ');
     const word = slovo(lemma as string, index.join(' '));
     if (word) {
-      console.log('\tsg\tspl');
+      console.log(word.index);
+      console.log('\tsg\tpl');
       CASE.forEach((inflectionCase) => {
         console.log(
           inflectionCase +
