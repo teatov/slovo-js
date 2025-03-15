@@ -1,6 +1,9 @@
 import type { Slovo } from '../slovo';
 import flexions from './flexions';
 
+export const CASE = ['nom', 'gen', 'dat', 'acc', 'ins', 'prp'] as const;
+export const NUMBER = ['sg', 'pl'] as const;
+
 /**
  * Репрезентация словоизменения имени
  */
@@ -15,7 +18,7 @@ export interface Inflection {
    * - `ins` - творительный падеж (кем? чем?)
    * - `prp` - предложный падеж (о ком? о чём? в ком? в чём?)
    */
-  case: 'nom' | 'gen' | 'dat' | 'acc' | 'ins' | 'prp';
+  case: (typeof CASE)[number];
 
   /**
    * Число
@@ -23,7 +26,7 @@ export interface Inflection {
    * - `sg` - единственное число
    * - `pl` - множественное число
    */
-  number: 'sg' | 'pl';
+  number: (typeof NUMBER)[number];
 }
 
 /**
