@@ -21,6 +21,7 @@
     "test": "vitest run",
     "lint": "tsc",
     "format": "prettier --write .",
+    "try": "tsx ./scripts/try.ts",
     "prepublishOnly": "npm run ci"
   },
   "repository": {
