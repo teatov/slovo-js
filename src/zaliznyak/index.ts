@@ -29,10 +29,10 @@ export interface SubstantiveDeclension {
   /**
    * Одушевлённость
    *
-   * - `'a'` - одушевлённое
    * - `'ina'` - неодушевлённое
+   * - `'a'` - одушевлённое
    */
-  animacy: 'a' | 'ina';
+  animacy: 'ina' | 'a';
 }
 
 /**
