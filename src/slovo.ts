@@ -1,3 +1,5 @@
+import type { Inflection } from './inflect';
+import inflect from './inflect';
 import { VOWELS, type Letter } from './letters';
 import { ZaliznyakIndex } from './zaliznyak';
 
@@ -48,6 +50,10 @@ export class Slovo {
     }
 
     return lemmaLower;
+  }
+
+  inflect(inflection: Inflection) {
+    return inflect(this, inflection);
   }
 }
 
