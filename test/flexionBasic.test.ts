@@ -1,8 +1,8 @@
 import { test, expect, describe } from 'vitest';
 import { ZaliznyakIndex } from '../src';
-import flexion from '../src/inflection/flexion';
-import type { Inflection } from '../src/inflection';
-import cases from './cases';
+import flexion from '../src/inflect/flexion';
+import type { Inflection } from '../src/inflect';
+import cases from './flextionBasicCases';
 
 describe.each(cases)('flexion[%s]', (indexString, cases) => {
   const index = ZaliznyakIndex.fromString(indexString)!;
