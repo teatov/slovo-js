@@ -94,7 +94,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
   }
 
   const index: ZaliznyakIndex = {
-    declension: { gender, animacy },
+    paradigm: { gender, animacy },
     type,
     stress,
   };

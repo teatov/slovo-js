@@ -53,7 +53,7 @@ const plural: GenderFlexion = (animacy, inflectionCase) => {
 };
 
 const flexion: Flexion = (index, inflection) => {
-  const { gender, animacy } = index.declension;
+  const { gender, animacy } = index.paradigm;
   switch (inflection.number) {
     case 'sg':
       return singular(animacy, inflection.case)[gender];

@@ -24,7 +24,7 @@ test.each([
       lemma: 'кошка',
       stem: 'кошк',
       index: {
-        declension: { gender: 'f', animacy: 'a' },
+        paradigm: { gender: 'f', animacy: 'a' },
         type: 3,
         stress: 'a',
         mobileVowel: true,
@@ -38,7 +38,7 @@ test.each([
       lemma: 'ведро',
       stem: 'ведр',
       index: {
-        declension: { gender: 'n', animacy: 'ina' },
+        paradigm: { gender: 'n', animacy: 'ina' },
         type: 1,
         stress: 'd',
         mobileVowel: true,
@@ -61,7 +61,7 @@ test.each([
   [
     'кошка',
     {
-      declension: { gender: 'f', animacy: 'a' },
+      paradigm: { gender: 'f', animacy: 'a' },
       type: 3,
       stress: 'a',
       mobileVowel: true,
@@ -70,7 +70,7 @@ test.each([
       lemma: 'кошка',
       stem: 'кошк',
       index: {
-        declension: { gender: 'f', animacy: 'a' },
+        paradigm: { gender: 'f', animacy: 'a' },
         type: 3,
         stress: 'a',
         mobileVowel: true,
@@ -80,7 +80,7 @@ test.each([
   [
     'ведро',
     {
-      declension: { gender: 'n', animacy: 'ina' },
+      paradigm: { gender: 'n', animacy: 'ina' },
       type: 1,
       stress: 'd',
       mobileVowel: true,
@@ -90,7 +90,7 @@ test.each([
       lemma: 'ведро',
       stem: 'ведр',
       index: {
-        declension: { gender: 'n', animacy: 'ina' },
+        paradigm: { gender: 'n', animacy: 'ina' },
         type: 1,
         stress: 'd',
         mobileVowel: true,

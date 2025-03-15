@@ -20,7 +20,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   3: (index, inflection) => substantive1(index, inflection).replace('ы', 'и'),
   4: (index, inflection) => {
     if (inflection.case === 'gen' && inflection.number === 'pl') {
-      switch (index.declension.gender) {
+      switch (index.paradigm.gender) {
         case 'm':
           return 'ей';
         case 'n':
@@ -33,7 +33,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   5: (index, inflection) => substantive1(index, inflection).replace('o', 'e'),
   6: (index, inflection) => {
     if (inflection.case === 'gen' && inflection.number === 'pl') {
-      switch (index.declension.gender) {
+      switch (index.paradigm.gender) {
         case 'm':
           return 'ев';
         case 'n':
@@ -45,7 +45,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   },
   7: (index, inflection) => {
     if (inflection.case === 'gen' && inflection.number === 'pl') {
-      switch (index.declension.gender) {
+      switch (index.paradigm.gender) {
         case 'm':
           return 'ев';
         case 'n':
@@ -56,7 +56,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
     if (
       (inflection.case === 'dat' &&
         inflection.number === 'sg' &&
-        index.declension.gender === 'f') ||
+        index.paradigm.gender === 'f') ||
       (inflection.case === 'prp' && inflection.number === 'sg')
     ) {
       return 'и';

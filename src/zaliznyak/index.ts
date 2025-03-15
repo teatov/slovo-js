@@ -42,7 +42,7 @@ export class ZaliznyakIndex {
   /**
    * Парадигма склонения
    */
-  declension: SubstantiveDeclension;
+  paradigm: SubstantiveDeclension;
 
   /**
    * Цифра индекса - тип склонения
@@ -112,14 +112,14 @@ export class ZaliznyakIndex {
   ioAlternation?: boolean;
 
   constructor({
-    declension,
+    paradigm,
     type,
     mobileVowel,
     alternations,
     stress,
     deviation,
   }: ZaliznyakIndex) {
-    this.declension = declension;
+    this.paradigm = paradigm;
     this.type = type;
     this.mobileVowel = mobileVowel;
     this.alternations = alternations;
