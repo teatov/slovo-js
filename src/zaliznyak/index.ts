@@ -36,7 +36,7 @@ export interface SubstantiveDeclension {
 }
 
 /**
- * Репрезентация индекса Зализняка для имён существительных
+ * Репрезентация индекса Зализняка для имён
  */
 export class ZaliznyakIndex {
   /**

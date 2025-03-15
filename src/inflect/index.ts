@@ -2,7 +2,7 @@ import type { Slovo } from '../slovo';
 import flexions from './flexions';
 
 /**
- * Репрезентация словоизменения имени существительного
+ * Репрезентация словоизменения имени
  */
 export interface Inflection {
   /**
@@ -26,6 +26,11 @@ export interface Inflection {
   number: 'sg' | 'pl';
 }
 
+/**
+ * Выполнить словоизменение имени
+ */
 export default function (word: Slovo, inflection: Inflection): string {
-  return word.stem + flexions[word.index.type](word.index, inflection);
+  const { stem } = word;
+  const flexion = flexions[word.index.type](word.index, inflection);
+  return stem + flexion;
 }

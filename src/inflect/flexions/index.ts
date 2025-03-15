@@ -10,9 +10,10 @@ export type GenderFlexion = (
   inflectionCase: Inflection['case'],
 ) => Record<SubstantiveDeclension['gender'], string>;
 
-export type FlexionSet = Record<ZaliznyakIndex['type'], Flexion>;
-
-const flexions: FlexionSet = {
+/**
+ * Функции для получения окончания по типу склонения
+ */
+const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   0: () => '',
   1: substantive1,
   2: substantive2,
