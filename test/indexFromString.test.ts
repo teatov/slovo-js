@@ -225,6 +225,15 @@ test.each([
       deviation: '12',
     },
   ],
+  [
+    'mina3c',
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 3,
+      stress: 'c',
+    },
+  ],
 ] as [string, ZaliznyakIndex][])(
   'indexFromString(%s) -> %s',
   (index, expected) => {

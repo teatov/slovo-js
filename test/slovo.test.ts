@@ -25,6 +25,7 @@ test.each([
       stem: 'кошк',
       index: {
         features: { gender: 'f', animacy: 'a' },
+        declension: 'sub',
         type: 3,
         stress: 'a',
         mobileVowel: true,
@@ -39,6 +40,7 @@ test.each([
       stem: 'ведр',
       index: {
         features: { gender: 'n', animacy: 'ina' },
+        declension: 'sub',
         type: 1,
         stress: 'd',
         mobileVowel: true,
@@ -53,7 +55,7 @@ test.each([
     expect(word).toBeInstanceOf(Slovo);
     expect(word?.lemma).toBe(expected.lemma);
     expect(word?.stem).toBe(expected.stem);
-    expect(word?.index).toStrictEqual(expected.index);
+    expect(JSON.parse(JSON.stringify(word?.index))).toStrictEqual(expected.index);
   },
 );
 
@@ -62,6 +64,7 @@ test.each([
     'кошка',
     {
       features: { gender: 'f', animacy: 'a' },
+      declension: 'sub',
       type: 3,
       stress: 'a',
       mobileVowel: true,
@@ -71,6 +74,7 @@ test.each([
       stem: 'кошк',
       index: {
         features: { gender: 'f', animacy: 'a' },
+        declension: 'sub',
         type: 3,
         stress: 'a',
         mobileVowel: true,
@@ -81,6 +85,7 @@ test.each([
     'ведро',
     {
       features: { gender: 'n', animacy: 'ina' },
+      declension: 'sub',
       type: 1,
       stress: 'd',
       mobileVowel: true,
@@ -91,6 +96,7 @@ test.each([
       stem: 'ведр',
       index: {
         features: { gender: 'n', animacy: 'ina' },
+        declension: 'sub',
         type: 1,
         stress: 'd',
         mobileVowel: true,
@@ -105,6 +111,6 @@ test.each([
     expect(word).toBeInstanceOf(Slovo);
     expect(word?.lemma).toBe(expected.lemma);
     expect(word?.stem).toBe(expected.stem);
-    expect(word?.index).toStrictEqual(expected.index);
+    expect(JSON.parse(JSON.stringify(word?.index))).toStrictEqual(expected.index);
   },
 );
