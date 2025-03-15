@@ -5,16 +5,27 @@ import type { ZaliznyakIndex } from '../src/zaliznyak';
 test.each([
   [
     'м 1a',
-    { features: { gender: 'm', animacy: 'ina' }, type: 1, stress: 'a' },
+    {
+      features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
+      type: 1,
+      stress: 'a',
+    },
   ],
   [
     'мо 2b',
-    { features: { gender: 'm', animacy: 'a' }, type: 2, stress: 'b' },
+    {
+      features: { gender: 'm', animacy: 'a' },
+      declension: 'sub',
+      type: 2,
+      stress: 'b',
+    },
   ],
   [
     'жо   3*a',
     {
       features: { gender: 'f', animacy: 'a' },
+      declension: 'sub',
       type: 3,
       stress: 'a',
       mobileVowel: true,
@@ -24,6 +35,7 @@ test.each([
     'с, 7°c',
     {
       features: { gender: 'n', animacy: 'ina' },
+      declension: 'sub',
       type: 7,
       stress: 'c',
       alternations: true,
@@ -33,6 +45,7 @@ test.each([
     'ж 5*°f',
     {
       features: { gender: 'f', animacy: 'ina' },
+      declension: 'sub',
       type: 5,
       stress: 'f',
       mobileVowel: true,
@@ -43,6 +56,7 @@ test.each([
     'жо, 4e①',
     {
       features: { gender: 'f', animacy: 'a' },
+      declension: 'sub',
       type: 4,
       stress: 'e',
       deviation: '1',
@@ -52,6 +66,7 @@ test.each([
     'со  , 6*d②',
     {
       features: { gender: 'n', animacy: 'a' },
+      declension: 'sub',
       type: 6,
       stress: 'd',
       mobileVowel: true,
@@ -62,6 +77,7 @@ test.each([
     'м 7°b①②',
     {
       features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
       type: 7,
       stress: 'b',
       alternations: true,
@@ -72,6 +88,7 @@ test.each([
     'ж  ,,, \t  , \n  ,   1c③',
     {
       features: { gender: 'f', animacy: 'ina' },
+      declension: 'sub',
       type: 1,
       stress: 'c',
       deviation: '3',
@@ -81,6 +98,7 @@ test.each([
     'м 1a ё',
     {
       features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
       type: 1,
       stress: 'a',
       ioAlternation: true,
@@ -90,6 +108,7 @@ test.each([
     'м1aё',
     {
       features: { gender: 'm', animacy: 'ina' },
+      declension: 'sub',
       type: 1,
       stress: 'a',
       ioAlternation: true,
@@ -98,7 +117,9 @@ test.each([
 ] as [string, ZaliznyakIndex][])(
   'indexFromString(%s) -> %s',
   (index, expected) => {
-    expect(indexFromString(index)).toStrictEqual(expected);
+    expect(JSON.parse(JSON.stringify(indexFromString(index)))).toStrictEqual(
+      expected,
+    );
   },
 );
 
@@ -125,3 +146,4 @@ test.each([
 ] as string[])('indexFromString(%s) -> null', (index) => {
   expect(indexFromString(index)).toBeNull();
 });
+
