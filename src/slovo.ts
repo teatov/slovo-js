@@ -6,7 +6,7 @@ import { ZaliznyakIndex } from './zaliznyak';
  */
 export class Slovo {
   /**
-   * Словарная форма слова - И. п. ед. ч. для существительных
+   * Начальная форма слова - И. п. ед. ч. для существительных
    */
   lemma: string;
 
@@ -23,7 +23,7 @@ export class Slovo {
   /**
    * Основной класс для работы со словами
    *
-   * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
+   * @param lemma Начальная форма слова - И. п. ед. ч. для существительных
    * @param index Индекс Зализняка данного слова
    */
   constructor(lemma: string, index: ZaliznyakIndex) {
@@ -33,7 +33,7 @@ export class Slovo {
   }
 
   /**
-   * Извлечение графической основы слова из его словарной формы
+   * Извлечение графической основы слова из его начальной формы
    */
   static stem(lemma: string): string {
     const lemmaLower = lemma.toLowerCase();
@@ -52,7 +52,7 @@ export class Slovo {
 }
 
 /**
- * @param lemma Словарная форма слова - И. п. ед. ч. для существительных
+ * @param lemma Начальная форма слова - И. п. ед. ч. для существительных
  * @param index Индекс Зализняка данного слова
  */
 export function slovo(
