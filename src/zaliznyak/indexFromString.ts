@@ -58,11 +58,11 @@ export default function (indexString: string): ZaliznyakIndex | null {
     case 'м':
       gender = 'm';
       break;
-    case 'ж':
-      gender = 'f';
-      break;
     case 'с':
       gender = 'n';
+      break;
+    case 'ж':
+      gender = 'f';
       break;
     default:
       return null;
