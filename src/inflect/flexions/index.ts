@@ -12,7 +12,7 @@ export type GenderFlexion = (
 
 export type FlexionSet = Record<ZaliznyakIndex['type'], Flexion>;
 
-const flexion: FlexionSet = {
+const flexions: FlexionSet = {
   0: () => '',
   1: substantive1,
   2: substantive2,
@@ -65,4 +65,4 @@ const flexion: FlexionSet = {
   8: () => '',
 };
 
-export default flexion;
+export default flexions;

@@ -1,5 +1,5 @@
 import type { Slovo } from '../slovo';
-import flexion from './flexion';
+import flexions from './flexions';
 
 /**
  * Репрезентация словоизменения имени существительного
@@ -27,5 +27,5 @@ export interface Inflection {
 }
 
 export default function (word: Slovo, inflection: Inflection): string {
-  return word.stem + flexion[word.index.type](word.index, inflection);
+  return word.stem + flexions[word.index.type](word.index, inflection);
 }
