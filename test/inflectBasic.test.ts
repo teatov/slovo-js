@@ -1,20 +1,19 @@
 import { test, expect, describe } from 'vitest';
-import { ZaliznyakIndex } from '../src';
-import flexion from '../src/inflect/flexion';
+import slovo, { ZaliznyakIndex } from '../src';
 import type { Inflection } from '../src/inflect';
-import cases from './flextionBasicCases';
+import cases from './inflectBasicCases';
 
-describe.each(cases)('flexion[%s]', (indexString, cases) => {
-  const index = ZaliznyakIndex.fromString(indexString)!;
+describe.each(cases)('slovo(%s, %s)', (lemma, indexString, cases) => {
+  const word = slovo(lemma, indexString)!;
 
   describe.each(cases)(
-    `flexion[${indexString}](%s) -> %s`,
+    `inflect(%s) -> %s`,
     (inflection, expected) => {
       test('test', () => {
         const [inflectionCase, number] = inflection.split('-');
 
         expect(
-          flexion[index.type](index, {
+          word.inflect({
             case: inflectionCase as Inflection['case'],
             number: number as Inflection['number'],
           }),
