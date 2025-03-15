@@ -27,7 +27,7 @@ export interface Inflection {
 }
 
 /**
- * Выполнить словоизменение имени
+ * Выполнить склонение слова по падежу и числу
  */
 export default function (word: Slovo, inflection: Inflection): string {
   const { stem, index } = word;

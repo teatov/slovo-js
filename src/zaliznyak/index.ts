@@ -14,7 +14,7 @@ export const STRESS_VALUES = [
 ] as const;
 
 /**
- * Репрезентация характеристики субстантивного склонения
+ * Характеристика субстантивной парадигмы склонения
  */
 export interface SubstantiveDeclension {
   /**
@@ -40,7 +40,7 @@ export interface SubstantiveDeclension {
  */
 export class ZaliznyakIndex {
   /**
-   * Основная характеристика склонения слова
+   * Парадигма склонения
    */
   declension: SubstantiveDeclension;
 

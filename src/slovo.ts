@@ -35,7 +35,7 @@ export class Slovo {
   }
 
   /**
-   * Извлечение графической основы слова из его начальной формы
+   * Извлечь графическую основу слова из его начальной формы
    */
   static stem(lemma: string): string {
     const lemmaLower = lemma.toLowerCase();
@@ -52,6 +52,9 @@ export class Slovo {
     return lemmaLower;
   }
 
+  /**
+   * Выполнить склонение слова по падежу и числу
+   */
   inflect(inflection: Inflection) {
     return inflect(this, inflection);
   }
