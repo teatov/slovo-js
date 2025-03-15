@@ -19,7 +19,11 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   2: substantive2,
   3: (index, inflection) => substantive1(index, inflection).replace('ы', 'и'),
   4: (index, inflection) => {
-    if (inflection.case === 'gen' && inflection.number === 'pl') {
+    if (
+      (inflection.case === 'gen' ||
+        (index.features.animacy === 'a' && inflection.case === 'acc')) &&
+      inflection.number === 'pl'
+    ) {
       switch (index.features.gender) {
         case 'm':
           return 'ей';
@@ -28,11 +32,15 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
           return '';
       }
     }
-    return substantive1(index, inflection).replace('ы', 'и');
+    return substantive1(index, inflection).replace('ы', 'и').replace('о', 'е');
   },
-  5: (index, inflection) => substantive1(index, inflection).replace('o', 'e'),
+  5: (index, inflection) => substantive1(index, inflection).replace('о', 'е'),
   6: (index, inflection) => {
-    if (inflection.case === 'gen' && inflection.number === 'pl') {
+    if (
+      (inflection.case === 'gen' ||
+        (index.features.animacy === 'a' && inflection.case === 'acc')) &&
+      inflection.number === 'pl'
+    ) {
       switch (index.features.gender) {
         case 'm':
           return 'ев';
@@ -44,7 +52,11 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
     return substantive2(index, inflection).replace('ь', 'й');
   },
   7: (index, inflection) => {
-    if (inflection.case === 'gen' && inflection.number === 'pl') {
+    if (
+      (inflection.case === 'gen' ||
+        (index.features.animacy === 'a' && inflection.case === 'acc')) &&
+      inflection.number === 'pl'
+    ) {
       switch (index.features.gender) {
         case 'm':
           return 'ев';
