@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest';
-import slovo, { ZaliznyakIndex } from '../src';
+import slovo from '../src';
 import cases from './inflectBasicCases';
 
 describe.each(cases)('%s, %s', (lemma, indexString, cases) => {

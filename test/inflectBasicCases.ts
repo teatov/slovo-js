@@ -1,5 +1,4 @@
 import type { Inflection } from '../src/inflect';
-import type { Concat } from '../src/utils';
 
 const cases: [string, string, [Inflection['case'], string, string][]][] = [
   [
