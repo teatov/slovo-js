@@ -2,6 +2,7 @@ import indexFromString from './indexFromString';
 
 export const GENDER = ['m', 'n', 'f'] as const;
 export const ANIMACY = ['ina', 'a'] as const;
+export const DECLENSION = ['sub', 'adj', 'prn', 'num'] as const;
 export const TYPE = [0, 1, 2, 3, 4, 5, 6, 7, 8] as const;
 export const STRESS = [
   'a',
@@ -44,9 +45,19 @@ export interface ZaliznyakFeatures {
  */
 export class ZaliznyakIndex {
   /**
-   * Основная синтаксическая характеристика имени
+   * Основная синтаксическая характеристика
    */
   features: ZaliznyakFeatures;
+
+  /**
+   * Основная морфологическая характеристика - парадигма склонения
+   *
+   * - `sub` - субстантивное склонение (имя существительное)
+   * - `adj` - адъективное склонение (имя прилагательное)
+   * - `prn` - местоименное склонение
+   * - `num` - склонение числительных
+   */
+  declension: typeof DECLENSION[number] = 'sub';
 
   /**
    * Цифра индекса - тип склонения
@@ -117,6 +128,7 @@ export class ZaliznyakIndex {
 
   constructor({
     features,
+    declension,
     type,
     mobileVowel,
     alternations,
@@ -124,6 +136,7 @@ export class ZaliznyakIndex {
     deviation,
   }: ZaliznyakIndex) {
     this.features = features;
+    this.declension = declension;
     this.type = type;
     this.mobileVowel = mobileVowel;
     this.alternations = alternations;
