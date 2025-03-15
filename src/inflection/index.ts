@@ -1,4 +1,5 @@
-import type { ZaliznyakIndex } from '../zaliznyak';
+import type { Slovo } from '../slovo';
+import flexion from './flexion';
 
 /**
  * Репрезентация словоизменения имени существительного
@@ -25,5 +26,6 @@ export interface Inflection {
   number: 'sg' | 'pl';
 }
 
-export type Rule = (stem: string, inflection: Inflection) => string;
-export type RuleSet = Record<ZaliznyakIndex['type'], Rule>;
+export default function (word: Slovo, inflection: Inflection): string {
+  return word.stem + flexion[word.index.type](word.index, inflection);
+}
