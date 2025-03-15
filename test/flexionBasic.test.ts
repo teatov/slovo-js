@@ -1,7 +1,7 @@
 import { test, expect, describe } from 'vitest';
 import { ZaliznyakIndex } from '../src';
 import flexions from '../src/inflect/flexions';
-import cases from './flextionBasicCases';
+import cases from './flexionBasicCases';
 
 describe.each(cases)('%s', (indexString, cases) => {
   const index = ZaliznyakIndex.fromString(indexString)!;
