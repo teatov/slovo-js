@@ -1,4 +1,4 @@
-import { STRESS, type SubstantiveDeclension, type ZaliznyakIndex } from '.';
+import { STRESS, type ZaliznyakFeatures, type ZaliznyakIndex } from '.';
 
 const SEP = /[\s,]*/.source;
 const RE_GENDER = /(м|ж|с)/.source;
@@ -48,7 +48,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
     return null;
   }
 
-  let gender: SubstantiveDeclension['gender'];
+  let gender: ZaliznyakFeatures['gender'];
 
   switch (_gender) {
     case 'м':
@@ -64,7 +64,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
       return null;
   }
 
-  let animacy: SubstantiveDeclension['animacy'];
+  let animacy: ZaliznyakFeatures['animacy'];
 
   if (_animacy) {
     animacy = 'a';
@@ -90,7 +90,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
   }
 
   const index: ZaliznyakIndex = {
-    paradigm: { gender, animacy },
+    features: { gender, animacy },
     type,
     stress,
   };

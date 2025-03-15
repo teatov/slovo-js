@@ -1,14 +1,14 @@
 import type { Inflection } from '..';
-import type { ZaliznyakIndex, SubstantiveDeclension } from '../../zaliznyak';
+import type { ZaliznyakIndex, ZaliznyakFeatures } from '../../zaliznyak';
 import substantive1 from './substantive1';
 import substantive2 from './substantive2';
 
 export type Flexion = (index: ZaliznyakIndex, inflection: Inflection) => string;
 
 export type GenderFlexion = (
-  animacy: SubstantiveDeclension['animacy'],
+  animacy: ZaliznyakFeatures['animacy'],
   inflectionCase: Inflection['case'],
-) => Record<SubstantiveDeclension['gender'], string>;
+) => Record<ZaliznyakFeatures['gender'], string>;
 
 /**
  * Функции для получения окончания по типу склонения
@@ -20,7 +20,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   3: (index, inflection) => substantive1(index, inflection).replace('ы', 'и'),
   4: (index, inflection) => {
     if (inflection.case === 'gen' && inflection.number === 'pl') {
-      switch (index.paradigm.gender) {
+      switch (index.features.gender) {
         case 'm':
           return 'ей';
         case 'n':
@@ -33,7 +33,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   5: (index, inflection) => substantive1(index, inflection).replace('o', 'e'),
   6: (index, inflection) => {
     if (inflection.case === 'gen' && inflection.number === 'pl') {
-      switch (index.paradigm.gender) {
+      switch (index.features.gender) {
         case 'm':
           return 'ев';
         case 'n':
@@ -45,7 +45,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
   },
   7: (index, inflection) => {
     if (inflection.case === 'gen' && inflection.number === 'pl') {
-      switch (index.paradigm.gender) {
+      switch (index.features.gender) {
         case 'm':
           return 'ев';
         case 'n':
@@ -56,7 +56,7 @@ const flexions: Record<ZaliznyakIndex['type'], Flexion> = {
     if (
       (inflection.case === 'dat' &&
         inflection.number === 'sg' &&
-        index.paradigm.gender === 'f') ||
+        index.features.gender === 'f') ||
       (inflection.case === 'prp' && inflection.number === 'sg')
     ) {
       return 'и';

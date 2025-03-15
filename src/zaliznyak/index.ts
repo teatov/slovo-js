@@ -18,9 +18,9 @@ export const STRESS = [
 export const DEVIATION = ['1', '2', '12', '3'] as const;
 
 /**
- * Характеристика субстантивной парадигмы склонения
+ * Основная синтаксическая характеристика имени
  */
-export interface SubstantiveDeclension {
+export interface ZaliznyakFeatures {
   /**
    * Род
    *
@@ -44,9 +44,9 @@ export interface SubstantiveDeclension {
  */
 export class ZaliznyakIndex {
   /**
-   * Парадигма склонения
+   * Основная синтаксическая характеристика имени
    */
-  paradigm: SubstantiveDeclension;
+  features: ZaliznyakFeatures;
 
   /**
    * Цифра индекса - тип склонения
@@ -116,14 +116,14 @@ export class ZaliznyakIndex {
   ioAlternation?: boolean;
 
   constructor({
-    paradigm,
+    features,
     type,
     mobileVowel,
     alternations,
     stress,
     deviation,
   }: ZaliznyakIndex) {
-    this.paradigm = paradigm;
+    this.features = features;
     this.type = type;
     this.mobileVowel = mobileVowel;
     this.alternations = alternations;
