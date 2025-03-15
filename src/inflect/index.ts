@@ -30,7 +30,7 @@ export interface Inflection {
  * Выполнить словоизменение имени
  */
 export default function (word: Slovo, inflection: Inflection): string {
-  const { stem } = word;
-  const flexion = flexions[word.index.type](word.index, inflection);
+  const { stem, index } = word;
+  const flexion = flexions[index.type](index, inflection);
   return stem + flexion;
 }
