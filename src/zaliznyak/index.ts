@@ -14,7 +14,7 @@ export const STRESS_VALUES = [
 ] as const;
 
 /**
- * Репрезентация субстантивного склонения
+ * Репрезентация характеристики субстантивного склонения
  */
 export interface SubstantiveDeclension {
   /**
