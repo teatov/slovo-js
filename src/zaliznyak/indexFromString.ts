@@ -1,4 +1,4 @@
-import { STRESS, type ZaliznyakFeatures, type ZaliznyakIndex } from '.';
+import { STRESS, ZaliznyakIndex, type ZaliznyakFeatures } from '.';
 
 const SEP = /[\s,]*/.source;
 const RE_GENDER = /(м|ж|с)/.source;
@@ -89,11 +89,11 @@ export default function (indexString: string): ZaliznyakIndex | null {
     return null;
   }
 
-  const index: ZaliznyakIndex = {
+  const index = new ZaliznyakIndex({
     features: { gender, animacy },
     type,
     stress,
-  };
+  });
 
   if (mobileVowel) {
     index.mobileVowel = true;
