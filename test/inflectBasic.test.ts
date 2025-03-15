@@ -1,6 +1,6 @@
 import { test, expect, describe } from 'vitest';
 import slovo from '../src';
-import cases from './inflectBasicCases';
+import {cases} from './inflectBasicCases';
 
 describe.each(cases)('%s, %s', (lemma, indexString, cases) => {
   const word = slovo(lemma, indexString)!;

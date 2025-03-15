@@ -39,4 +39,4 @@ const cases: [string, string, [Inflection['case'], string, string][]][] = [
   ],
 ];
 
-export default cases;
+export { cases };
