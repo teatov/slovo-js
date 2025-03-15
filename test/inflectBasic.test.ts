@@ -13,7 +13,7 @@ describe.each(cases)('%s, %s', (lemma, indexString, cases) => {
           expectedSingular,
         );
       });
-      
+
       test(`slovo(${lemma}, ${indexString}).inflect(${inflectionCase}, pl) -> ${expectedPlural}`, () => {
         expect(word.inflect({ case: inflectionCase, number: 'pl' })).toBe(
           expectedPlural,
