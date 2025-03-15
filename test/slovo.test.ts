@@ -55,7 +55,9 @@ test.each([
     expect(word).toBeInstanceOf(Slovo);
     expect(word?.lemma).toBe(expected.lemma);
     expect(word?.stem).toBe(expected.stem);
-    expect(JSON.parse(JSON.stringify(word?.index))).toStrictEqual(expected.index);
+    expect(JSON.parse(JSON.stringify(word?.index))).toStrictEqual(
+      expected.index,
+    );
   },
 );
 
@@ -111,6 +113,8 @@ test.each([
     expect(word).toBeInstanceOf(Slovo);
     expect(word?.lemma).toBe(expected.lemma);
     expect(word?.stem).toBe(expected.stem);
-    expect(JSON.parse(JSON.stringify(word?.index))).toStrictEqual(expected.index);
+    expect(JSON.parse(JSON.stringify(word?.index))).toStrictEqual(
+      expected.index,
+    );
   },
 );

@@ -144,7 +144,7 @@ const casesStandard: [string, ZaliznyakIndex][] = [
   ],
 ];
 
-const casesWiki:[string, ZaliznyakIndex][] = [
+const casesWiki: [string, ZaliznyakIndex][] = [
   [
     'm a 1a',
     {
@@ -164,12 +164,12 @@ const casesWiki:[string, ZaliznyakIndex][] = [
     },
   ],
   [
-    'n a 4f\'',
+    "n a 4f'",
     {
       features: { gender: 'n', animacy: 'a' },
       declension: 'sub',
       type: 4,
-      stress: 'f\'',
+      stress: "f'",
     },
   ],
   [
@@ -201,6 +201,6 @@ const casesWiki:[string, ZaliznyakIndex][] = [
       stress: 'c',
     },
   ],
-]
+];
 
 export { casesStandard, casesWiki };

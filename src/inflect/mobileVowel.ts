@@ -14,8 +14,8 @@ export default function (
   let vowelPos = 0;
   let replacement = '';
 
-  const lastChar = stem.charAt(stem.length -1) as Letter;
-  const secondLastChar = stem.charAt(stem.length - 2) as Letter;
+  const lastChar = stem.at(-1) as Letter;
+  const secondLastChar = stem.at(-2) as Letter;
   if (VOWELS.includes(lastChar)) {
     vowel = lastChar;
     vowelPos = stem.length - 1;
@@ -50,8 +50,8 @@ export default function (
             index.type === 3 &&
             CONSONANTS.includes(letterBeforeVowel) &&
             !FRICATIVES.includes(letterBeforeVowel)) ||
-            letterBeforeVowel === 'л'
-          ) {
+          letterBeforeVowel === 'л'
+        ) {
           replacement = 'ь';
         } else {
           replacement = '';
