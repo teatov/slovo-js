@@ -27,7 +27,7 @@ export interface ZaliznyakFeatures {
    *
    * - `'m'` - му­ж­с­кой ро­д
    * - `'n'` - средний ро­д
-   * - `'f'` - женский ро­д
+   * - `'f'` - женский и общий ро­д
    */
   gender: (typeof GENDER)[number];
 

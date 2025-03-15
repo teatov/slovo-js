@@ -3,6 +3,7 @@ import { STRESS, ZaliznyakIndex, type ZaliznyakFeatures } from '.';
 const SEP = /[\s,]*/.source;
 const RE_GENDER = /([мсжmnf])/.source;
 const RE_ANIMACY = /(о|[ina]+)?/.source;
+const RE_COMMON_GENDER = /(-[мож]+)?/.source;
 const RE_TYPE = /(\d+)/.source;
 const RE_MOBILE_VOWEL = /(\*)?/.source;
 const RE_ALTERATIONS = /(°)?/.source;
@@ -15,6 +16,7 @@ const INDEX_RE = new RegExp(
     RE_GENDER +
     SEP +
     RE_ANIMACY +
+    RE_COMMON_GENDER +
     SEP +
     RE_TYPE +
     RE_MOBILE_VOWEL +
@@ -37,6 +39,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
     _,
     _gender,
     _animacy,
+    commonGender,
     _type,
     mobileVowel,
     alternations,
@@ -51,21 +54,30 @@ export default function (indexString: string): ZaliznyakIndex | null {
 
   let gender: ZaliznyakFeatures['gender'];
 
-  switch (_gender) {
-    case 'м':
-    case 'm':
-      gender = 'm';
-      break;
-    case 'с':
-    case 'n':
-      gender = 'n';
-      break;
-    case 'ж':
-    case 'f':
+  if (commonGender) {
+    console.log(commonGender, _gender, _animacy);
+    if (commonGender === '-жо' && _gender === 'м' && _animacy === 'о') {
       gender = 'f';
-      break;
-    default:
+    } else {
       return null;
+    }
+  } else {
+    switch (_gender) {
+      case 'м':
+      case 'm':
+        gender = 'm';
+        break;
+      case 'с':
+      case 'n':
+        gender = 'n';
+        break;
+      case 'ж':
+      case 'f':
+        gender = 'f';
+        break;
+      default:
+        return null;
+    }
   }
 
   let animacy: ZaliznyakFeatures['animacy'];
