@@ -1,31 +1,27 @@
-import {
-  STRESS_VALUES,
-  type SubstantiveDeclension,
-  type ZaliznyakIndex,
-} from '.';
+import { STRESS, type SubstantiveDeclension, type ZaliznyakIndex } from '.';
 
 const SEP = /[\s,]*/.source;
-const GENDER = /(м|ж|с)/.source;
-const ANIMACY = /(о)?/.source;
-const TYPE = /(\d+)/.source;
-const MOBILE_VOWEL = /(\*)?/.source;
-const ALTERATIONS = /(°)?/.source;
-const STRESS = /([a-f]['"]?)/.source;
-const DEVIATION = /([①|②|③]+)?/.source;
-const IO_ALTERATION = /(ё)?/.source;
+const RE_GENDER = /(м|ж|с)/.source;
+const RE_ANIMACY = /(о)?/.source;
+const RE_TYPE = /(\d+)/.source;
+const RE_MOBILE_VOWEL = /(\*)?/.source;
+const RE_ALTERATIONS = /(°)?/.source;
+const RE_STRESS = /([a-f]['"]?)/.source;
+const RE_DEVIATION = /([①|②|③]+)?/.source;
+const RE_IO_ALTERATION = /(ё)?/.source;
 
 const INDEX_RE = new RegExp(
   '^' +
-    GENDER +
-    ANIMACY +
+    RE_GENDER +
+    RE_ANIMACY +
     SEP +
-    TYPE +
-    MOBILE_VOWEL +
-    ALTERATIONS +
-    STRESS +
-    DEVIATION +
+    RE_TYPE +
+    RE_MOBILE_VOWEL +
+    RE_ALTERATIONS +
+    RE_STRESS +
+    RE_DEVIATION +
     SEP +
-    IO_ALTERATION +
+    RE_IO_ALTERATION +
     '$',
 );
 
@@ -87,7 +83,7 @@ export default function (indexString: string): ZaliznyakIndex | null {
 
   let stress: ZaliznyakIndex['stress'];
 
-  if (STRESS_VALUES.includes(_stress as any)) {
+  if (STRESS.includes(_stress as any)) {
     stress = _stress as ZaliznyakIndex['stress'];
   } else {
     return null;
