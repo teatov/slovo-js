@@ -1,5 +1,6 @@
 import type { Slovo } from '../slovo';
 import flexions from './flexions';
+import mobileVowel from './mobileVowel';
 
 export const CASE = ['nom', 'gen', 'dat', 'acc', 'ins', 'prp'] as const;
 export const NUMBER = ['sg', 'pl'] as const;
@@ -33,7 +34,13 @@ export interface Inflection {
  * Выполнить склонение слова по падежу и числу
  */
 export default function (word: Slovo, inflection: Inflection): string {
-  const { stem, index } = word;
+  const { index } = word;
+  let { stem } = word;
   const flexion = flexions[index.type](index, inflection);
+
+  if (index.mobileVowel) {
+    stem = mobileVowel(word, inflection, flexion);
+  }
+
   return stem + flexion;
 }
