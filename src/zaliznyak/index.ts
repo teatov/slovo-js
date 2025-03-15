@@ -57,7 +57,7 @@ export class ZaliznyakIndex {
    * - `prn` - местоименное склонение
    * - `num` - склонение числительных
    */
-  declension: typeof DECLENSION[number] = 'sub';
+  declension?: typeof DECLENSION[number] = 'sub';
 
   /**
    * Цифра индекса - тип склонения
